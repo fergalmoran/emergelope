@@ -24,7 +24,7 @@ def debuggler():
     )
 
 
-@app.route('/')
+@app.route('/3c9d6880-107b-4c03-8356-2778b7bd8209')
 def catch_all():
     """
         initiate cluster fuck!!
