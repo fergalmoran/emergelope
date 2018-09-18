@@ -11,8 +11,13 @@ to_numbers = os.environ['NUMBER_LIST']
 from_number = os.environ['FROM_NUMBER']
 
 
-@app.route('/debuggler')
-def debuggler():
+@app.route('/')
+def home():
+    return 'EmerGELOPE'
+
+
+@app.route('/debug')
+def debug():
     return jsonify(
         {
             'account_sid': account_sid,
@@ -25,11 +30,7 @@ def debuggler():
 
 
 @app.route('/3c9d6880-107b-4c03-8356-2778b7bd8209')
-def catch_all():
-    """
-        initiate cluster fuck!!
-    """
-
+def initiate_cluster_fuck():
     client = Client(account_sid, auth_token)
     sids = []
     for number in to_numbers.split(','):
