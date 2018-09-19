@@ -1,4 +1,6 @@
+import json
 import os
+from urllib.request import urlopen
 
 from flask import Flask, jsonify
 from twilio.rest import Client
@@ -11,9 +13,16 @@ to_numbers = os.environ['NUMBER_LIST']
 from_number = os.environ['FROM_NUMBER']
 
 
+def parse_json():
+    json_url = urlopen(to_numbers)
+
+    text = json.loads(json_url.read())
+    return text
+
+
 @app.route('/')
 def home():
-    return 'EmerGELOPE'
+    return 'Emergelope'
 
 
 @app.route('/debug')
@@ -33,7 +42,8 @@ def debug():
 def initiate_cluster_fuck():
     client = Client(account_sid, auth_token)
     sids = []
-    for number in to_numbers.split(','):
+    numbers = parse_json()
+    for number in numbers:
         try:
             sids.append(
                 client.calls.create(
@@ -46,7 +56,7 @@ def initiate_cluster_fuck():
         except:
             print('Error sending message')
 
-    return sids
+    return "Succeeded"
 
 
 if __name__ == '__main__':

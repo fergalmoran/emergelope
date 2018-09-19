@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+   emergelope:
+     container_name: emergelope
+     image: fergalmoran/emergelope
+     restart: unless-stopped
+     environment:
+       VIRTUAL_HOST: ${DOMAINS}
+       LETSENCRYPT_HOST: ${DOMAINS}
+       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL} 
+       ACCOUNT_SID: ${ACCOUNT_SID}
+       AUTH_TOKEN: ${AUTH_TOKEN}
+       NUMBER_LIST: ${NUMBER_LIST}
+       FROM_NUMBER: ${FROM_NUMBER}
+       CALL_XML: ${CALL_XML}
+
+networks:
+    default:
+       external:
+         name: ${NETWORK}
