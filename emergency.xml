@@ -1,4 +1,0 @@
-<Response>
-    <Say voice="alice">Don't panic! Penny has pulled the emergency ripcord, please call Fergal!</Say>
-    <Play>http://demo.twilio.com/docs/classic.mp3</Play>
-</Response>
