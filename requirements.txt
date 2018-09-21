@@ -1,2 +1,4 @@
 Flask
+Werkzeug
 twilio
+google-cloud-datastore

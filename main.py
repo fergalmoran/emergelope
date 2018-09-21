@@ -2,8 +2,10 @@ import json
 import os
 from urllib.request import urlopen
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from twilio.rest import Client
+
+from data_store import save_number
 
 app = Flask(__name__)
 account_sid = os.environ['ACCOUNT_SID']
@@ -22,8 +24,7 @@ def parse_json():
 
 @app.route('/')
 def home():
-    return 'Emergelope'
-
+    return render_template('index.html')
 
 @app.route('/debug')
 def debug():
@@ -40,6 +41,8 @@ def debug():
 
 @app.route('/3c9d6880-107b-4c03-8356-2778b7bd8209')
 def initiate_cluster_fuck():
+    return
+
     client = Client(account_sid, auth_token)
     sids = []
     numbers = parse_json()

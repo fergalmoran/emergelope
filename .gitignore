@@ -106,3 +106,4 @@ numbers.json
 .mypy_cache/
 .idea
 app.yaml
+google-credentials.json
